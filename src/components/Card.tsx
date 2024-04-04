@@ -2,6 +2,7 @@ import * as ck from "@chakra-ui/react";
 import { ICarrier } from "../services/carries";
 import { motion, AnimatePresence } from "framer-motion";
 import { memo } from "react";
+import { styles as commonStyles } from "../theme/styles/button";
 
 interface ICardProps {
   details: ICarrier;
@@ -33,7 +34,7 @@ export const Card = ({ details }: ICardProps) => {
       <motion.div
         initial={{ position: "relative", bottom: "-10px", height: "100%" }}
         animate={{ bottom: "0px" }}
-        exit={{bottom: "-10px"}}
+        exit={{ bottom: "-10px" }}
         style={{ height: "100%" }}
       >
         <ck.Box
@@ -41,10 +42,21 @@ export const Card = ({ details }: ICardProps) => {
           cursor={availability ? "default" : "not-allowed"}
           {...styles.box}
         >
-          <ck.Text fontSize="larger" mb="10px" fontWeight="bold">
-            {name}
-          </ck.Text>
-          
+          <ck.HStack justifyContent="space-between" alignItems="center" mb="10px">
+            <ck.Text fontSize="larger" fontWeight="bold">
+              {name}
+            </ck.Text>
+            <ck.Button {...commonStyles.bookNow} colorScheme="blue">
+              Book Now
+              <span
+                className="material-symbols-rounded"
+                style={{ fontSize: "16px" }}
+              >
+                arrow_forward
+              </span>
+            </ck.Button>
+          </ck.HStack>
+
           <ck.Text fontSize="smaller">
             Rating: {rating}{" "}
             <span className="material-symbols-outlined">star</span>

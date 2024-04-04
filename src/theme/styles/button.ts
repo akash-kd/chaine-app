@@ -40,4 +40,14 @@ export const styles: { [key: string]: ck.ButtonProps } = {
       marginRight: '6px'
     }
   },
+  bookNow: {
+    height: "32px",
+    fontSize: "14px",
+    borderColor: "gray.300",
+    backgroundColor: "blue.500",
+
+    display: 'flex',
+    justifyContent: 'center',
+    alignItems: 'center'
+  },
 };

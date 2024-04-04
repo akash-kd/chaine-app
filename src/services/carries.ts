@@ -8,7 +8,7 @@ export type ICarrier = {
     availability: boolean;
     onTimeDeliveryPercentage: number
     specialRequirements: [ISpecialRequirements]
-    matchScore: number
+    score: number
 }
 
 export interface ICarrierResponse {

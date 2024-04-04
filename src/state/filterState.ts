@@ -42,6 +42,7 @@ export const FilterStateSelector = selector<ICarrier[] | undefined>({
       return carrierState;
     }
 
+    // Exact Match
     const filteredCarriers = carrierState?.filter((carrier) => {
       return (
         carrier.cost >= currentFilterState.minCost &&
@@ -56,8 +57,7 @@ export const FilterStateSelector = selector<ICarrier[] | undefined>({
       );
     });
 
-    
-
+    filteredCarriers?.sort((a,b) => b.score - a.score);
     return filteredCarriers;
   },
 });

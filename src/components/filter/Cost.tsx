@@ -15,7 +15,7 @@ const Cost = function Cost({}) {
           type="number"
           onChange={(e) =>
             setFilterState((prev) => {
-              return { ...prev, minCost: e.target.value };
+              return { ...prev, minCost: e.target.value === "" ? 0: e.target.value };
             })
           }
         ></ck.Input>
@@ -25,7 +25,7 @@ const Cost = function Cost({}) {
           type="number"
           onChange={(e) =>
             setFilterState((prev) => {
-              return { ...prev, maxCost: e.target.value };
+              return { ...prev, maxCost: e.target.value === "" ? 2000: e.target.value };
             })
           }
         ></ck.Input>
