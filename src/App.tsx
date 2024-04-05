@@ -2,7 +2,6 @@
 import * as ck from "@chakra-ui/react";
 import Logo from "./components/Logo";
 import { Filter } from "./components/filter/index";
-import { DevMode } from "./components/DevMode";
 import { Card } from "./components/Card";
 import BookNowModel from "./components/BookNow";
 import { styles, grid } from "./theme/styles/app";
@@ -14,14 +13,11 @@ import { ICarrier, ICarrierResponse, getCarriers } from "./services/carries";
 
 // State Management
 import { useRecoilValue, useSetRecoilState } from "recoil";
-import { DevModeState } from "./state/devMode";
 import { useEffect } from "react";
 import CarrierState from "./state/carrierState";
 import { BestMatch, FilterStateSelector } from "./state/filterState";
 
-
 export default function App() {
-  const devMode = useRecoilValue(DevModeState);
   const getFilteredCarriers = useRecoilValue<ICarrier[] | undefined>(
     FilterStateSelector
   );
@@ -55,7 +51,9 @@ export default function App() {
       );
     } else {
       return (
-        <ck.Text {...styles.title}>{"(>_<) No Carriers Found!, Try for Other Options"}</ck.Text>
+        <ck.Text {...styles.title}>
+          {"(>_<) No Carriers Found!, Try for Other Options"}
+        </ck.Text>
       );
     }
   };
@@ -81,13 +79,12 @@ export default function App() {
   };
   return (
     <>
-      {devMode && <ReactQueryDevtools />}
+      {<ReactQueryDevtools />}
       <BookNowModel />
       <ck.Grid templateColumns="1.2fr 3fr" {...styles.layout}>
         <ck.VStack w="full" h="full" gap="20px">
           <Logo />
           <Filter />
-          <DevMode />
         </ck.VStack>
 
         {/* MAIN CONTENT÷ */}
