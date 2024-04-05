@@ -86,18 +86,18 @@ function BookNowModel() {
                 dangerous
               </span>
             )}
-            <ck.Text>Availabilty</ck.Text>
+            <ck.Text>Availability</ck.Text>
           </ck.Box>
         </ck.GridItem>
       </ck.Grid>
     </ck.ModalBody>
   );
 
-  const loadingContent = (
-    <ck.Center w="full" h="300px">
-      <ck.Spinner />
-    </ck.Center>
-  ); // can be used when needed
+  // const loadingContent = (
+  //   <ck.Center w="full" h="300px">
+  //     <ck.Spinner />
+  //   </ck.Center>
+  // ); // can be used when needed
 
   const confirmContent = (
     <ck.Center w="full" h="300px" display="flex" flexDir="column" gap="20px">

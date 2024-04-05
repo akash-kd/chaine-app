@@ -16,7 +16,6 @@ interface ICardProps {
 const styles: { [key: string]: ck.ChakraProps } = {
   box: {
     borderWidth: "1px",
-    borderRadius: "lg",
     overflow: "hidden",
     p: 4,
     height: "100%",

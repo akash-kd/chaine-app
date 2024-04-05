@@ -1,7 +1,7 @@
-import React, { memo } from "react";
-import DevModeState from '../state/devMode.ts';
+import DevModeState from "../state/devMode.ts";
+import { memo } from "react";
 
-import * as recoil from 'recoil';
+import * as recoil from "recoil";
 import * as ck from "@chakra-ui/react";
 
 const styles: { [key: string]: ck.BoxProps } = {
@@ -26,10 +26,11 @@ export const DevMode = memo(function DevMode({}) {
     <ck.Box {...styles.main}>
       <ck.HStack w="full" display="flex" justifyContent="space-between">
         <ck.Text>Developer Mode</ck.Text>
-        <ck.Switch defaultChecked={devMode} onChange={e => setDevMode(e.target.checked)}/>
+        <ck.Switch
+          defaultChecked={devMode}
+          onChange={(e) => setDevMode(e.target.checked)}
+        />
       </ck.HStack>
     </ck.Box>
   );
 });
-
-
