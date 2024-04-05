@@ -9,8 +9,7 @@ import { SwitchTheme, Sizes, Styles, Colors } from "./theme";
 import "./index.css";
 
 // State Management
-import { RecoilRoot, useRecoilValue} from "recoil";
-import { DevModeState } from "./state/devMode.ts";
+import { RecoilRoot } from "recoil";
 
 // API & Services
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";

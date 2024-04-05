@@ -1,4 +1,4 @@
-import { atom, selector } from "recoil";
+import { atom } from "recoil";
 import { ICarrier } from "../services/carries";
 
 export const BookNowModelState = atom<boolean>({

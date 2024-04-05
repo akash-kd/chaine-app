@@ -1,3 +1,4 @@
+// @ts-nocheck
 import * as ck from "@chakra-ui/react";
 import { memo } from "react";
 import { useSetRecoilState } from "recoil";

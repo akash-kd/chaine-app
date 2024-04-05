@@ -1,6 +1,6 @@
 import * as ck from "@chakra-ui/react";
 import { Cost, Ratings, Availability, AvailabilityRatings, SpecialRequirements} from "./index";
-import { buttonStyles } from "../../theme/styles/button";
+
 
 const styles:{ [key: string]: ck.BoxProps } = {
   main: {

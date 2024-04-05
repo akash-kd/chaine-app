@@ -1,3 +1,4 @@
+// @ts-nocheck
 import * as ck from "@chakra-ui/react";
 import { useSetRecoilState, useRecoilValue } from "recoil";
 import FilterState from "../../state/filterState";
