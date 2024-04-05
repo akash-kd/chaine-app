@@ -4,6 +4,7 @@ import Logo from "./components/Logo";
 import { Filter } from "./components/filter/index";
 import { DevMode } from "./components/DevMode";
 import { Card } from "./components/Card";
+import BookNowModel from "./components/BookNow";
 import { styles, grid } from "./theme/styles/app";
 
 // API & Services
@@ -17,6 +18,8 @@ import { DevModeState } from "./state/devMode";
 import { useEffect } from "react";
 import CarrierState from "./state/carrierState";
 import { BestMatch, FilterStateSelector } from "./state/filterState";
+import { BookNowCurrentCarrier } from "./state/bookNowState";
+
 
 export default function App() {
   const devMode = useRecoilValue(DevModeState);
@@ -81,6 +84,7 @@ export default function App() {
   return (
     <>
       {devMode && <ReactQueryDevtools />}
+      <BookNowModel />
       <ck.Grid templateColumns="1.2fr 3fr" {...styles.layout}>
         <ck.VStack w="full" h="full" gap="20px">
           <Logo />

@@ -3,6 +3,8 @@ import { ICarrier } from "../services/carries";
 import { motion, AnimatePresence } from "framer-motion";
 import { memo } from "react";
 import { styles as commonStyles } from "../theme/styles/button";
+import { useSetRecoilState } from "recoil";
+import { BookNowCurrentCarrier, BookNowModelState } from "../state/bookNowState";
 
 interface ICardProps {
   details: ICarrier;
@@ -17,6 +19,19 @@ const styles: { [key: string]: ck.ChakraProps } = {
     height: "100%",
     borderRadius: "10px",
   },
+
+  featuresBox: {
+    w: "full",
+    h: "full",
+    display: "flex",
+    flexDir: "column",
+    justifyContent: "center",
+    alignItems: "center",
+    border: "1px solid",
+    borderColor: "gray.200",
+    borderRadius: "10px",
+    py: "20px",
+  },
 };
 
 export const Card = ({ details }: ICardProps) => {
@@ -28,6 +43,14 @@ export const Card = ({ details }: ICardProps) => {
     specialRequirements,
     availability,
   } = details;
+  const setBookNowModelState = useSetRecoilState(BookNowModelState);
+  const setCurrentCarrier = useSetRecoilState(BookNowCurrentCarrier);
+
+  const handleBookNow = () => {
+    setBookNowModelState((prev) => !prev);
+    setCurrentCarrier(details);
+  }
+
 
   return (
     <AnimatePresence>
@@ -46,7 +69,7 @@ export const Card = ({ details }: ICardProps) => {
             <ck.Text fontSize="larger" fontWeight="bold">
               {name}
             </ck.Text>
-            <ck.Button {...commonStyles.bookNow} colorScheme="blue">
+            <ck.Button onClick={handleBookNow} {...commonStyles.bookNow} colorScheme="blue">
               Book Now
               <span
                 className="material-symbols-rounded"
@@ -57,14 +80,14 @@ export const Card = ({ details }: ICardProps) => {
             </ck.Button>
           </ck.HStack>
 
-          <ck.Text fontSize="smaller">
+          <ck.Text fontSize="medium">
             Rating: {rating}{" "}
             <span className="material-symbols-outlined">star</span>
           </ck.Text>
-          <ck.Text fontSize="smaller">
+          <ck.Text fontSize="medium">
             On-Time Delivery Percentage: {onTimeDeliveryPercentage * 100}%
           </ck.Text>
-          <ck.Text fontSize="smaller">Cost: ${cost}</ck.Text>
+          <ck.Text fontSize="medium">Cost: ${cost}</ck.Text>
           {specialRequirements && (
             <ck.Flex my="10px">
               {specialRequirements.map((requirement, index) => (
