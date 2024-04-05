@@ -1,5 +1,5 @@
 import * as ck from "@chakra-ui/react";
-import { memo, useState } from "react";
+import { memo, useEffect, useState } from "react";
 import { useRecoilValue, useSetRecoilState } from "recoil";
 import {
   BookNowCurrentCarrier,
@@ -24,12 +24,15 @@ const styles: { [key: string]: ck.ChakraProps } = {
 };
 
 function BookNowModel() {
-  const [confirm, setConfirm] = useState<boolean>(false);
-
-  const currentCarrier = useRecoilValue<ICarrier>(BookNowCurrentCarrier);
   const isBookNowOpen = useRecoilValue<boolean>(BookNowModelState);
+  const [confirm, setConfirm] = useState<boolean>(isBookNowOpen);
+  const currentCarrier = useRecoilValue<ICarrier>(BookNowCurrentCarrier);
   const setBookNowModelState = useSetRecoilState<boolean>(BookNowModelState);
   const onClose = () => setBookNowModelState(false);
+
+  useEffect(() => {
+    if(isBookNowOpen === false) setConfirm(false);
+  }, [isBookNowOpen])
 
   const handleOnConfirm = () => {
     setConfirm(true);
