@@ -4,7 +4,10 @@ import { motion, AnimatePresence } from "framer-motion";
 import { memo } from "react";
 import { styles as commonStyles } from "../theme/styles/button";
 import { useSetRecoilState } from "recoil";
-import { BookNowCurrentCarrier, BookNowModelState } from "../state/bookNowState";
+import {
+  BookNowCurrentCarrier,
+  BookNowModelState,
+} from "../state/bookNowState";
 
 interface ICardProps {
   details: ICarrier;
@@ -49,8 +52,7 @@ export const Card = ({ details }: ICardProps) => {
   const handleBookNow = () => {
     setBookNowModelState((prev) => !prev);
     setCurrentCarrier(details);
-  }
-
+  };
 
   return (
     <AnimatePresence>
@@ -65,11 +67,19 @@ export const Card = ({ details }: ICardProps) => {
           cursor={availability ? "default" : "not-allowed"}
           {...styles.box}
         >
-          <ck.HStack justifyContent="space-between" alignItems="center" mb="10px">
+          <ck.HStack
+            justifyContent="space-between"
+            alignItems="center"
+            mb="10px"
+          >
             <ck.Text fontSize="larger" fontWeight="bold">
               {name}
             </ck.Text>
-            <ck.Button onClick={handleBookNow} {...commonStyles.bookNow} colorScheme="blue">
+            <ck.Button
+              onClick={handleBookNow}
+              {...commonStyles.bookNow}
+              colorScheme="blue"
+            >
               Book Now
               <span
                 className="material-symbols-rounded"
@@ -81,8 +91,7 @@ export const Card = ({ details }: ICardProps) => {
           </ck.HStack>
 
           <ck.Text fontSize="medium">
-            Rating: {rating}{" "}
-            <span className="material-symbols-outlined">star</span>
+            Rating: {rating}
           </ck.Text>
           <ck.Text fontSize="medium">
             On-Time Delivery Percentage: {onTimeDeliveryPercentage * 100}%

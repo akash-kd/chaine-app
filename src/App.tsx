@@ -18,7 +18,6 @@ import { DevModeState } from "./state/devMode";
 import { useEffect } from "react";
 import CarrierState from "./state/carrierState";
 import { BestMatch, FilterStateSelector } from "./state/filterState";
-import { BookNowCurrentCarrier } from "./state/bookNowState";
 
 
 export default function App() {
@@ -42,7 +41,7 @@ export default function App() {
     if (getFilteredCarriers && getFilteredCarriers.length > 0) {
       return (
         <>
-          <ck.Text {...styles.title} mt="30px">
+          <ck.Text {...styles.title} my="30px">
             Carriers
           </ck.Text>
           <ck.Grid {...grid.mainGrid}>
@@ -63,11 +62,10 @@ export default function App() {
 
   const getBestMatches = () => {
     if (isPending || error) return <></>;
-
     if (getBestMatchCarrier && getBestMatchCarrier.length > 0) {
       return (
         <>
-          <ck.Text {...styles.title} mt="30px">
+          <ck.Text {...styles.title} my="30px">
             Best Matches
           </ck.Text>
           <ck.Grid {...grid.mainGrid}>

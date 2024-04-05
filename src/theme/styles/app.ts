@@ -20,6 +20,7 @@ export const styles: { [key: string]: ck.ChakraProps; } = {
   main: {
     w: "full",
     h: "full",
+    overflowY:'scroll',
     padding: "20px",
     bg: "gray.50",
     border: "1px solid",

@@ -97,7 +97,7 @@ function BookNowModel() {
     <ck.Center w="full" h="300px">
       <ck.Spinner />
     </ck.Center>
-  );
+  ); // can be used when needed
 
   const confirmContent = (
     <ck.Center w="full" h="300px" display="flex" flexDir="column" gap="20px">
