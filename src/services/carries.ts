@@ -1,4 +1,4 @@
-export type ISpecialRequirements = "Refrigerated" | "Hazardous Materials" | "Eco-Friendly" | "Budget Haulers" | "Oversized Loads"
+export type ISpecialRequirements = "Refrigerated" | "Hazardous Materials" | "Eco-Friendly" | "Budget Haulers" | "Oversized Loads" | ""
 
 export type ICarrier = {
     id: string;

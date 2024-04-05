@@ -33,7 +33,7 @@ export const FilterState = atom<IFilterState>({
 });
 
 export const FilterStateSelector = selector<ICarrier[] | undefined>({
-  key: "FilteredTodoList",
+  key: "ExactMatchFilter",
   get: ({ get }) => {
     const currentFilterState = get(FilterState);
     const carrierState = get<ICarrier[] | undefined>(CarrierState);
@@ -61,5 +61,21 @@ export const FilterStateSelector = selector<ICarrier[] | undefined>({
     return filteredCarriers;
   },
 });
+
+
+export const BestMatch = selector<ICarrier[] | undefined>({
+  key: "BestMatchFilter",
+  get: ({ get }) => {
+    const currentFilterState = get(FilterStateSelector);
+    const carrierState = get<ICarrier[] | undefined>(CarrierState);
+
+    const bestMatch = carrierState?.filter(
+      (carrier) => !currentFilterState?.includes(carrier)
+    );
+
+    bestMatch?.sort((a,b) => b.score - a.score);
+    return bestMatch?.slice(0,2);
+  },
+})
 
 export default FilterState;

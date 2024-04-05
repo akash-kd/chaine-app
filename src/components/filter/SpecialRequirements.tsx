@@ -61,6 +61,14 @@ const SpeacialRequirements = function SpecialRequirements() {
         >
           Budget Haulers
         </ck.Button>
+        <ck.Button
+          {...styles.button}
+          {...(specialRequirements === "" &&
+            styles.currentButton)}
+          onClick={() => handleOnClick("")}
+        >
+          Anything
+        </ck.Button>
       </ck.HStack>
     </ck.VStack>
   );

@@ -1,5 +1,5 @@
 import * as ck from "@chakra-ui/react";
-import { styles } from "../App";
+import { styles } from "../theme/styles/app";
 
 export default function Logo() {
   return <ck.Box {...styles.logo}>
